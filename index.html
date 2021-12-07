@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Spotify Web Playback SDK Quick Start</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #progress_box {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            width: 98%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 25px;
+        }
+
+        #progress_bar_box {
+            position: relative;
+            background: #ccc;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+
+        #progress_bar {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 10px;
+            border-radius: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        #progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 10px;
+            background: #28a745;
+            transition: width 0.3s linear;
+            z-index: 1;
+            border-radius: 25px;
+
+        }
+
+        .player {
+            background: #343a40;
+            height: auto;
+            color: white;
+            font-weight: bold;
+        }
+
+        .playerbutton {
+            border-radius: 30px;
+            height: 50px;
+            width: 50px;
+            background: #495057;
+            border: 1px solid;
+            cursor: pointer !important;
+            margin-left: 5px;
+        }
+
+        .controlIcon {
+            margin-left: 3px;
+        }
+
+        #current-track-name {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            font-style: italic;
+            font-family: cursive;
+        }
+
+        #current-track {
+            width: 300px;
+            height: 300px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5 text-center">
+        <h2>Spotify Web Playback SDK</h2>
+        <hr>
+        <button id="togglePlay" type="button" class="btn btn-outline-primary" onclick="getASong()">Load Songs</button>
+
+        <div style="text-align: center;justify-content: center;">
+            <h3>
+                <p id="current-track-name"></p>
+            </h3>
+            <img id="current-track" src="https://images.macrumors.com/t/vMbr05RQ60tz7V_zS5UEO9SbGR0=/1600x900/smart/article-new/2018/05/apple-music-note.jpg" alt="">
+        </div>
+        <div class="player fixed-bottom">
+            <div id="progress_box">
+                <div class="controls text-center mb-1">
+                    <button type="button" onclick="backward()" class="btn btn-info playerbutton"><i class="fas fa-backward"></i></button>
+                    <button type="button" onclick="prev()" class="btn btn-info playerbutton">
+                        <i class="fas fa-step-backward"></i></button>
+                    <button type="button" class="btn btn-info playerbutton" onclick="toggleplay()">
+                        <i id="playpause" class="controlIcon fas fa-play"></i>
+                    </button>
+                    <button type="button" onclick="next()" class="btn btn-info playerbutton"><i class="fas fa-step-forward"></i></button>
+                    <button type="button" onclick="forward()" class="btn btn-info playerbutton"><i class="fas fa-forward"></i></button>
+                </div>
+                <div style=" position: relative;
+                height: 25px;
+                padding: 0px 5px;font-size: 15px;">
+                    <p id="currenttime" style="float: left;">0:00</p>
+                    <p id="durationtine" style="float: right;">0:00</p>
+                </div>
+                <div id="progress_bar_box">
+                    <div id="progress_bar"></div>
+                    <div id="progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script src="./index.js" defer></script>
+
+</body>
+
+</html>
