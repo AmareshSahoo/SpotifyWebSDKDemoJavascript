@@ -23,7 +23,7 @@ const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = 'e84079cbd00d4dab895651a22b90cb1e';
-const redirectUri = 'http://localhost:80';
+const redirectUri = 'https://spotifywebplayback.herokuapp.com';
 const scopes = [
   'streaming',
   'user-read-email',
